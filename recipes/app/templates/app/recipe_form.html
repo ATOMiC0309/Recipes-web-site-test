@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block title %}
+    Recipe-Form
+{% endblock title %}
+{% block main %}
+<form method="post" enctype="multipart/form-data" style="margin-top: 20px">
+    {% csrf_token %}
+    {{ recipe_form.as_p }}
+
+    <div>
+        <button type="submit" class="btn btn primary " style="width: 15%; background-color:#3b71ca; border: 1px solid #3b71ca; color: white;">
+            {% if 'recipe-create' in request.path %}
+                Save
+            {% else %}
+                Update
+            {% endif %}
+        </button>
+        <a href="{% url 'index' %}" class="btn btn primary " style="width: 15%; background-color:#3b71ca; border: 1px solid #3b71ca; color: white;">
+            Cancel
+        </a>
+    </div>
+</form>
+{% endblock main %}

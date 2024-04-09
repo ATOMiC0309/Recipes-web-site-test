@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+    {% block title %}
+    Category action form
+{% endblock title %}
+{% block main %}
+<form method="post" style="margin-top: 20px">
+    {% csrf_token %}
+
+    {{ category_form.as_p }}
+    <button type="submit" class="btn btn-primary">Save</button>
+</form>
+{% endblock main %}
